@@ -8,8 +8,66 @@
     
     <link href="css/style.css" rel="stylesheet">
 </head>
-<body>
-    <%- include('partials/nav.ejs') %>
-    <h1>How It Works</h1>
+<body style="background-image: url('images/how-it-works-img.jpg');">
+    <header>
+        <%- include('partials/nav.ejs') %>
+    </header>
+    <main>
+        <div class="wetha_details">
+            <h1>How It Works</h1>
+            <p>
+                Wetha is a simple weather forecasting application. For simplicity, this application on works for locations in the United States.
+                It uses the <a target="blank" class="inline_link" href="https://openweathermap.org/api">OpenWeatherMap API</a> to get the weather
+                forecast and the <a target="blank" class="inline_link" href="https://openweathermap.org/api/geocoding-api">Geocoding API</a>
+                to convert the given city and state name to latitude and longitude coordinates.
+            </p>
+            <hr>
+            <div>
+                <h2>Step 1: Geocoding API Process</h2>
+                <p>
+                    User input is requested from the user. I used the
+                    <a target="blank" class="inline_link" href="https://www.npmjs.com/package/us-state-codes">us-state-codes</a>
+                    node package to convert the state name to its abbreviation.
+                </p>
+                <p>
+                    After collecting the user input, a request is sent to the Geocoding API to convert the city name and state
+                    code to latitude and longitude coordinates. Additional information about the city is provided by the
+                    Geocoding API, but we are not using it for this application.
+                </p>
+            </div>
+            <br>
+            <div>
+                <h2>Step 2: OpenWeatherMap API Process</h2>
+                <p>
+                    The latitude and longitude coordinates are used to get the weather forecast from the OpenWeatherMap API.
+                    The OpenWeatherMap API returns data on the current weather forecast for the given location.
+                    The response contains lots of weather information, but I am only using a few of the data points in this
+                    application.
+                </p>
+            </div>
+            <br>
+            <div>
+                <h2>Step 3: Displaying the Weather Forecast</h2>
+                <p>
+                    The weather forecast is displayed on the home page. The weather forecast is displayed in a list format.
+                    The list contains the following data:
+                </p>
+                <div style="display: flex;">
+                    <ul>
+                        <li>"Feels like"</li>
+                        <li>Min</li>
+                        <li>Max</li>
+                    </ul>
+                    <ul>
+                        <li>Humidity</li>
+                        <li>Wind Speed</li>
+                        <li>Atmospheric Pressure</li>
+                    </ul>
+                </div>
+            </div>
+            <br><br><br><br>
+        </div>
+    </main>
+    <footer></footer>
 </body>
 </html>

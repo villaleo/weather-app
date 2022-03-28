@@ -24,9 +24,10 @@
 }
 
 .wetha_details {
+    margin: -5px -8px;
+    padding: 15px;
     height: fit-content;
     width: 100%;
-    font-size: 20px;
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
 }
@@ -94,3 +95,11 @@ footer {
 #clear { background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Clear_Sky_1.jpg/1600px-Clear_Sky_1.jpg?20200102082511"); }
 #cloud { background-image: url("https://www.macmillandictionaryblog.com/wp-content/uploads/2018/04/cloud--1024x667.jpg"); }
 #snow { background-image: url("https://www.farmersalmanac.com/wp-content/uploads/2021/01/snow-as_130246761-1024x682.jpeg"); }
+
+.inline_link {
+    color: #cf7171;
+    text-decoration: none;
+}
+.inline_link:hover {
+    color: #cf9e71;
+}
