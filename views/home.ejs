@@ -13,12 +13,23 @@
         <%- include('partials/nav.ejs') %>
     </header>
     <main>
-        <h1>Home</h1>
-        <form action="/forecast">
-            <input type="text" name="city" placeholder="Enter city name">
-            <input type="text" name="state" placeholder="Enter state name">
-            <input type="submit" value="Get Weather">
-        </form>
+        <div id="wetha_details">
+            <h1 id="home_logo" class="text_center">☼ Wetha ☼</h1>
+            <p class="text_center">
+                A simple weather forecasting application. Enter a city and state name to get the
+                weather forecast.
+            </p>
+            <div id="home_search_form">
+                <form action="/forecast">
+                    <input class="text_input" type="text" name="city" placeholder="Enter city name">
+                    <input class="text_input" type="text" name="state" placeholder="Enter state name">
+                    <input class="btn_input" type="submit" value="Get Weather">
+                </form>
+            </div>
+            <div class="error_label">
+                
+            </div>
+        </div>
     </main>
     <footer></footer>
 </body>

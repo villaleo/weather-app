@@ -23,14 +23,12 @@ app.get('/forecast', async (req, res) => {
     let geocodingData = await geocodingResponse.json()
 
     if (geocodingData?.length === 0) {
-        return res.render('home', {
-            error: 'No such city found.'
-        })
+        console.log('No such city found.')
+        return res.render('home')
     }
     else if (geocodingData.cod) {
-        return res.render('home', {
-            error: 'Cannot have empty parameters.'
-        })
+        console.log('No parameters specified.')
+        return res.render('home')
     }
 
     let latitude = geocodingData[0]?.lat
