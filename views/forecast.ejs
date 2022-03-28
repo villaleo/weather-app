@@ -8,13 +8,40 @@
     
     <link href="css/style.css" rel="stylesheet">
 </head>
-<body>
+
+<% let weather_state = data.weather[0].main.toLowerCase() %>
+<% let background_image = 'default' %>
+
+<% if (weather_state.includes('rain')) { %>
+    <% background_image = 'rain' %>
+<% } else if (weather_state.includes('clear')) { %>
+    <% background_image = 'clear' %>
+<% } else if (weather_state.includes('cloud')) { %>
+    <% background_image = 'cloud' %>
+<% } else if (weather_state.includes('snow')) { %>
+    <% background_image = 'snow' %>
+<% } %>
+
+<body id="<%= background_image %>">
     <header>
         <%- include('partials/nav.ejs') %>
     </header>
     <main>
-        <h1>Results</h1>
-        
+        <div class="wetha_details">
+            <h1 class="text_center"><%= data.main.temp %> &deg;F: <%= data.weather[0].main %></h1>
+            <p class="text_center">
+                <% let weather_desc = data.weather[0].description %>
+                <%= weather_desc.charAt(0).toUpperCase() + weather_desc.slice(1) %> in <%= data.name %>. <br>
+            </p>
+            <ul class="result_details">
+                <li>Feels like: <%= data.main.feels_like %> &deg;F</li>
+                <li>Min: <%= data.main.temp_min %> &deg;F</li>
+                <li>Max: <%= data.main.temp_max %> &deg;F</li>
+                <li>Humidity: <%= data.main.humidity %>%</li>
+                <li>Wind: <%= data.wind.speed %> mph</li>
+                <li>Pressure: <%= data.main.pressure %> atm</li>
+            </ul>
+        </div>
     </main>
     <footer></footer>
 </body>

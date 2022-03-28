@@ -34,7 +34,7 @@ app.get('/forecast', async (req, res) => {
     let latitude = geocodingData[0]?.lat
     let longitude = geocodingData[0]?.lon
 
-    let weatherArgs = `lat=${latitude}&lon=${longitude}&appid=${API_KEY}`
+    let weatherArgs = `lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=imperial`
     let weatherResponse = await fetch(weatherEndpoint + weatherArgs)
     let weatherData = await weatherResponse.json()
 

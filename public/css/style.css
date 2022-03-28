@@ -23,7 +23,7 @@
     background-color: #cf7171;
 }
 
-#wetha_details {
+.wetha_details {
     height: fit-content;
     width: 100%;
     font-size: 20px;
@@ -65,7 +65,7 @@ footer {
     text-align: center;
 }
 
-#home_logo {
+#home_logo, .header {
     font-family: 'Architects Daughter', cursive;
 }
 
@@ -84,3 +84,13 @@ footer {
     background-color: #cf7171;
     color: #fff;
 }
+
+.result_details li {
+    padding-bottom: 10px;
+}
+
+#default { background-image: url("https://resilientblog.co/wp-content/uploads/2019/07/sky-quotes-1024x614.jpg.webp"); }
+#rain { background-image: url("https://images.unsplash.com/photo-1607500098489-1991d1fbab7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmFpbnklMjBza3l8ZW58MHx8MHx8&w=1000&q=80"); }
+#clear { background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Clear_Sky_1.jpg/1600px-Clear_Sky_1.jpg?20200102082511"); }
+#cloud { background-image: url("https://www.macmillandictionaryblog.com/wp-content/uploads/2018/04/cloud--1024x667.jpg"); }
+#snow { background-image: url("https://www.farmersalmanac.com/wp-content/uploads/2021/01/snow-as_130246761-1024x682.jpeg"); }
