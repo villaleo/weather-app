@@ -11,7 +11,9 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('home', {
+        error: false
+    })
 })
 
 app.get('/forecast', async (req, res) => {
@@ -24,11 +26,17 @@ app.get('/forecast', async (req, res) => {
 
     if (geocodingData?.length === 0) {
         console.log('No such city found.')
-        return res.render('home')
+        return res.render('home', {
+            error: true,
+            message: 'No such city found.'
+        })
     }
     else if (geocodingData.cod) {
         console.log('No parameters specified.')
-        return res.render('home')
+        return res.render('home', {
+            error: true,
+            message: 'No parameters specified.'
+        })
     }
 
     let latitude = geocodingData[0]?.lat
@@ -37,8 +45,6 @@ app.get('/forecast', async (req, res) => {
     let weatherArgs = `lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=imperial`
     let weatherResponse = await fetch(weatherEndpoint + weatherArgs)
     let weatherData = await weatherResponse.json()
-
-    console.log(weatherData)
 
     res.render('forecast', {
         data: weatherData

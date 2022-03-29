@@ -8,26 +8,32 @@
     
     <link href="css/style.css" rel="stylesheet">
 </head>
-<body id="default">
+<body class="default">
     <header>
         <%- include('partials/nav.ejs') %>
     </header>
     <main>
         <div class="wetha_details">
-            <h1 id="home_logo" class="text_center">☼ Wetha ☼</h1>
+            <h1 class="text_center home_logo">Wetha</h1>
             <p class="text_center">
                 A simple weather forecasting application. Enter a city and state name to get the
                 weather forecast.
             </p>
             <div id="home_search_form">
                 <form action="/forecast">
-                    <input class="text_input" type="text" name="city" placeholder="Enter city name">
-                    <input class="text_input" type="text" name="state" placeholder="Enter state name">
-                    <input class="btn_input" type="submit" value="Get Weather">
+                    <div>
+                        <input class="text_input" type="text" name="city" placeholder="Enter city name">
+                        <input class="text_input" type="text" name="state" placeholder="Enter state name">
+                    </div>
+                    <% if (error) { %>
+                        <div class="text_center" style="color: red; margin-top: 15px;">
+                            Error: <%- message %>
+                        </div>
+                        <input class="btn_input submit_btn" type="submit" value="Get Weather" style="margin-top: 10px;">
+                    <% } else { %>
+                        <input class="btn_input submit_btn" type="submit" value="Get Weather">
+                    <% } %>
                 </form>
-            </div>
-            <div class="error_label">
-                
             </div>
         </div>
     </main>
