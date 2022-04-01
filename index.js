@@ -1,12 +1,15 @@
+import { API_KEY } from './key' // Delete this line.
+
 const express = require('express')
 const fetch = require('node-fetch')
-const states = require('us-state-codes')
 
 const { getStateCodeByStateName } = require('us-state-codes')
 const geocodingEndpoint = 'https://api.openweathermap.org/geo/1.0/direct?'
 const weatherEndpoint = 'https://api.openweathermap.org/data/2.5/weather?'
 const forecastEndpoint = 'https://api.openweathermap.org/data/2.5/forecast?'
-const API_KEY = '9965dce7f97fcb2a4d726496253bda5b' // <-- replace with your own key
+
+// Uncomment the following line and replace the string with an API key from https://openweathermap.org/api
+// const API_KEY = 'replace with your own key'
 
 const app = express()
 app.set('view engine', 'ejs')
