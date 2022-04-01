@@ -8,7 +8,46 @@
     
     <link href="css/style.css" rel="stylesheet">
 </head>
-<body class="default">
-    <%- include('partials/nav.ejs') %>
+
+<% let weather_state = data['1'][0].weather[0].main.toLowerCase() %>
+<% let background_image = 'default' %>
+
+<% if (weather_state.includes('rain')) { %>
+    <% background_image = 'rain' %>
+<% } else if (weather_state.includes('clear')) { %>
+    <% background_image = 'clear' %>
+<% } else if (weather_state.includes('cloud')) { %>
+    <% background_image = 'cloud' %>
+<% } else if (weather_state.includes('snow')) { %>
+    <% background_image = 'snow' %>
+<% } %>
+
+<body class="<%= background_image %>">
+    <header>
+        <%- include('partials/nav.ejs') %>
+    </header>
+    <main>
+        <div class="wetha_details">
+            <h1 class="text_center">Upcoming forecast for <%= name %></h1>
+            <div id="weekly-results" class="HBox">
+                <% for (let i = 1; i <= 5; i++) { %>
+                    <div class="week-result-item" style="margin-left: 15px; margin-right: 15px;">
+                        <% let curr = data[i][0] %>
+                        <h2 class="text_center"><%= curr.weather[0].main %></h2>
+                        <h3 class="text_center"><%= `${curr.dt_txt.substring(5, 7)}/${curr.dt_txt.substring(8, 11)}` %></h3>
+                        <ul>
+                            <% for (item of data[i]) { %>
+                                <li><%= Math.floor(item.main.temp) %> &deg;F - <%= item.dt_txt.substring(11) %></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                <% } %>
+            </div>
+            <form action="/" class="HBox">
+                <input class="btn_input submit_btn" type="submit" value="< Back" formaction="/">
+            </form>
+        </div>
+    </main>
+    <footer></footer>
 </body>
 </html>
