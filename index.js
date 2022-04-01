@@ -55,8 +55,29 @@ app.get('/how-it-works', (req, res) => {
     res.render('how_it_works')
 })
 
-app.get('/four-day-forecast', (req, res) => {
-    res.render('four_day_forecast')
+app.get('/weekly-forecast', (req, res) => {
+    /*
+    const forecastEndpoint = 'https://api.openweathermap.org/data/2.5/forecast?'
+    let args = `lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=imperial`
+
+    let forecastResponse = await fetch(forecastEndpoint + args)
+    let forecastData = await forecastResponse.json()
+
+    let days = { '1': [], '2': [], '3': [], '4': [], '5': [] }
+
+    let position = 0
+    for (let i = 0; i < data.list.length; i++) {
+    if (i % 8 === 0) {
+        position++
+    }
+
+    if (days[position] === undefined) {
+        days[position] = []
+    }
+    days[position].push(forecastData.list[i])
+    }
+    */
+    res.render('weekly')
 })
 
 app.listen(3000, () => {

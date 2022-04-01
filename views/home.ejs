@@ -20,20 +20,27 @@
                 weather forecast.
             </p>
             <div id="home_search_form">
-                <form action="/forecast">
-                    <div>
-                        <input class="text_input" type="text" name="city" placeholder="Enter city name">
-                        <input class="text_input" type="text" name="state" placeholder="Enter state name">
-                    </div>
-                    <% if (error) { %>
-                        <div class="text_center" style="color: red; margin-top: 15px;">
-                            Error: <%- message %>
+                <div>
+                    <form action="/forecast" method="get">
+                        <div>
+                            <label for="city_entry_label">
+                                <input class="text_input" type="text" name="city" placeholder="Enter city name" required>
+                            </label>
+                            <label for="state_entry_label">
+                                <input class="text_input" type="text" name="state" placeholder="Enter state name" required>
+                            </label>
                         </div>
-                        <input class="btn_input submit_btn" type="submit" value="Get Weather" style="margin-top: 10px;">
-                    <% } else { %>
-                        <input class="btn_input submit_btn" type="submit" value="Get Weather">
-                    <% } %>
-                </form>
+                        <% if (error) { %>
+                            <div class="text_center" style="color: red; margin-top: 15px;">
+                                Error: <%- message %>
+                            </div>
+                            <input class="btn_input submit_btn" type="submit" value="Current Forecast" style="margin-top: 10px;">
+                        <% } else { %>
+                            <input class="btn_input submit_btn" type="submit" value="Current Forecast">
+                        <% } %>
+                        <input class="btn_input submit_btn" type="submit" value="Upcoming Week" formaction="/weekly-forecast">
+                    </form>
+                </div>
             </div>
         </div>
     </main>

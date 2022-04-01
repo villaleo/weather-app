@@ -79,7 +79,7 @@ footer {
 
 .btn_input {
     height: 30px;
-    width: 100px;
+    width: fit-content;
 }
 .btn_input:hover {
     background-color: #cf7171;
